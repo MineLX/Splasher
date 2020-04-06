@@ -10,7 +10,11 @@ import java.util.List;
 
 public abstract class FramePaletteFactory implements IPaletteFactory {
 
-	protected final JFrame frame;
+	static final int WIDTH_INTERVAL = 16;
+
+	static final int HEIGHT_INTERVAL = 37;
+
+	private final JFrame frame;
 
 	private final List<Runnable> cleanups;
 
@@ -24,7 +28,7 @@ public abstract class FramePaletteFactory implements IPaletteFactory {
 
 	@Override
 	public IPalette createPalette(Context context) {
-		frame.setSize(context.width, context.height);
+		frame.setSize(context.width + WIDTH_INTERVAL, context.height + HEIGHT_INTERVAL);
 		return createPaletteByFrame(context, frame);
 	}
 

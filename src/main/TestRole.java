@@ -3,7 +3,6 @@ package main;
 import com.zyh.pro.animator.main.animators.valueanimator.ValueAnimator;
 import com.zyh.pro.animator.main.animators.valueanimator.ValueAnimatorBuilder;
 import com.zyh.pro.animator.main.animators.valueanimator.loopmodes.LoopMode;
-import org.jetbrains.annotations.NotNull;
 
 public class TestRole extends Role {
 
@@ -13,7 +12,7 @@ public class TestRole extends Role {
 		oval = getStart(context.width, context.height);
 
 		ValueAnimator animator = new ValueAnimatorBuilder()
-				.setLoopMode(LoopMode.infinity_reversed())
+//				.setLoopMode(LoopMode.infinity())
 				.objectOrder(new Oval.OvalEvaluator(), getStart(context.width, context.height), getEnd(context.width, context.height), this::setOval)
 				.build();
 		context.addCleanUp(animator::stop);
@@ -24,12 +23,10 @@ public class TestRole extends Role {
 		this.oval = oval;
 	}
 
-	@NotNull
 	private Oval getStart(int width, int height) {
-		return new Oval(width / 2, height / 2, 100, 100);
+		return new Oval(width / 2, height / 2, 200, 200);
 	}
 
-	@NotNull
 	private Oval getEnd(int width, int height) {
 		return new Oval(width / 2 - 100, height / 2 - 100, 100, 100);
 	}

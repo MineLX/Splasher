@@ -7,11 +7,8 @@ public class AWTPalette extends Palette {
 
 	private final Graphics graphics;
 
-	private final JFrame frame;
-
 	public AWTPalette(Context context, JFrame frame) {
 		super(context);
-		this.frame = frame;
 		graphics = frame.getGraphics();
 	}
 
@@ -28,6 +25,10 @@ public class AWTPalette extends Palette {
 		fillRect(0, 0, getWidth(), getHeight(), value);
 	}
 
+	private void setColor(int value) {
+		graphics.setColor(new Color(value));
+	}
+
 	@Override
 	public void rect(int x, int y, int width, int height, int value) {
 		setColor(value);
@@ -39,10 +40,6 @@ public class AWTPalette extends Palette {
 		setColor(value);
 		graphics.drawOval(centerX - radiusX, centerY - radiusY,
 				radiusX + radiusX, radiusY + radiusY);
-	}
-
-	private void setColor(int value) {
-		graphics.setColor(new Color(value));
 	}
 
 	@Override
@@ -66,11 +63,11 @@ public class AWTPalette extends Palette {
 
 	@Override
 	public int getWidth() {
-		return frame.getWidth();
+		return context.width;
 	}
 
 	@Override
 	public int getHeight() {
-		return frame.getHeight();
+		return context.height;
 	}
 }

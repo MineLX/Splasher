@@ -5,10 +5,6 @@ import java.awt.*;
 
 public class D2DPalette extends Palette {
 
-	private static final int WIDTH_INTERVAL = 16;
-
-	private static final int HEIGHT_INTERVAL = 37;
-
 	static {
 		System.load("C:\\Users\\Remain\\Desktop\\NEW EDITION\\SplasherLib\\Debug\\libSplasherLib.dll");
 	}
@@ -57,12 +53,11 @@ public class D2DPalette extends Palette {
 
 	@Override
 	public int getWidth() {
-		return context.width - WIDTH_INTERVAL;
+		return context.width;
 	}
 
 	@Override
 	public int getHeight() {
-		return context.height - HEIGHT_INTERVAL;
+		return context.height;
 	}
-
 }
