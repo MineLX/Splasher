@@ -15,7 +15,7 @@ public class TestRoleTest {
 		IPaletteFactory factory = new D2DPaletteFactory();
 		factory.addKeyListener(new MyKeyListener());
 
-		AutoStage stage = AutoStage.create(factory, 1000, 600);
+		AutoStage stage = new AutoStage(factory, 1000, 600);
 		stage.addRole(new TestRole(stage.getContext()));
 	}
 

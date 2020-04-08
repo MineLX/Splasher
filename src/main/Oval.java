@@ -44,7 +44,7 @@ public class Oval {
 
 	@Override
 	public String toString() {
-		return "Oval(" + centerX + ", " + centerY + ")";
+		return "Oval(" + centerX + ", " + centerY + ", " + radiusX + ", " + radiusY + ")";
 	}
 
 	public static class OvalEvaluator implements Evaluator<Oval> {

@@ -13,7 +13,6 @@ public class RectRole extends Role {
 	private final int value;
 
 	public RectRole(int x, int y, int width, int height, int value) {
-		super();
 		this.x = x;
 		this.y = y;
 		this.width = width;

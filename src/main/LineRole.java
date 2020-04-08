@@ -13,7 +13,6 @@ public class LineRole extends Role {
 	private final int value;
 
 	public LineRole(int startX, int startY, int endX, int endY, int value) {
-		super();
 		this.startX = startX;
 		this.startY = startY;
 		this.endX = endX;

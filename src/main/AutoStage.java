@@ -13,9 +13,9 @@ public class AutoStage {
 
 	private final Context context;
 
-	public AutoStage(Context context, IPalette palette) {
-		this.palette = palette;
-		this.context = context;
+	public AutoStage(IPaletteFactory paletteFactory, int width, int height) {
+		this.context = new Context(paletteFactory, width, height);
+		this.palette = paletteFactory.createPalette(context);
 		roles = new ArrayList<>();
 
 		Animator repaint = Animators.justDoIt(this::repaint);
@@ -44,9 +44,4 @@ public class AutoStage {
 		return context;
 	}
 
-	public static AutoStage create(IPaletteFactory paletteFactory, int width, int height) {
-		Context context = new Context(width, height);
-		paletteFactory.addCleanup(() -> context.getCleanups().forEach(Runnable::run));
-		return new AutoStage(context, paletteFactory.createPalette(context));
-	}
 }

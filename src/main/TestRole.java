@@ -12,7 +12,7 @@ public class TestRole extends Role {
 		oval = getStart(context.width, context.height);
 
 		ValueAnimator animator = new ValueAnimatorBuilder()
-//				.setLoopMode(LoopMode.infinity())
+				.setLoopMode(LoopMode.infinity_reversed())
 				.objectOrder(new Oval.OvalEvaluator(), getStart(context.width, context.height), getEnd(context.width, context.height), this::setOval)
 				.build();
 		context.addCleanUp(animator::stop);

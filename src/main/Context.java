@@ -11,11 +11,12 @@ public class Context {
 
 	private final List<Runnable> cleanups;
 
-	Context(int width, int height) {
+	Context(IPaletteFactory paletteFactory, int width, int height) {
 		this.width = width;
 		this.height = height;
 
 		cleanups = new ArrayList<>();
+		paletteFactory.addCleanup(() -> cleanups.forEach(Runnable::run));
 	}
 
 	public void addCleanUp(Runnable cleanup) {
